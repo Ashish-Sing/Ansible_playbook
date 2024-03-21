@@ -1,0 +1,26 @@
+---
+- name: Manage Files
+  hosts: d3server
+  become: yes
+  vars:
+    ansible_ssh_user: ladmin
+    ansible_ssh_pass: T&Dfndpc#123
+
+  tasks:
+    - name: Copy file to remote server
+      copy:
+        src: /storage/PCTA-TEST/pcta_311012.exe
+        dest: /root/PCTA/pcta_311012.exe
+
+    - name: Move the exiting file pcta.exe to pcta_2023.exe
+      command: mv /root/PCTA/pcta.exe /root/PCTA/pcta_2023.exe
+
+    - name: Move the new pcta_311012.exe to pcta.exe file
+      command: mv /root/PCTA/pcta_311012.exe /root/PCTA/pcta.exe
+
+    - name: Change ownership and file permissions
+      file:
+        path: /root/PCTA/pcta.exe
+        owner: atxuser
+        group: anddgrp
+        mode: "0775"
