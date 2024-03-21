@@ -1,0 +1,16 @@
+---
+- name: Update and install packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ packages }}"
+        state: present
+        update_cache: true
+      vars:
+        packages:
+          - vsftpd
+          - libnsl.so.1
+          - net-snmp
+          - net-snmp-utils
