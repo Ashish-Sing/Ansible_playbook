@@ -1,6 +1,7 @@
 # Ansible_playbook
 playbooks for automate tasks
 
+
 Key Features of Ansible:
 1> **Configuration Management**: installing packages, starting services, creating users, setting permissions, and more.Ansible’s configuration management is idempotent, which means you can run the same playbook multiple times and it will only make changes if they’re needed. 
 2> **Task Automation**: Ansible can automate tasks such as software installation, patching, network configuration and more. Ansible Playbooks, written in a human-readable YAML format, describe tasks to be performed in a particular sequence. And all of these tasks can be executed in parallel.
